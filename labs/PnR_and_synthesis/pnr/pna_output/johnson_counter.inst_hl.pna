@@ -1,0 +1,16 @@
+*
+* file: johnson_counter.inst_hl.pna
+* version: JupiterXT 2004.12
+* time: Thu Nov 29 11:11:25 2018
+* size: 0 0 339200 332000
+* inst_num: 4
+* v_threshold: 0.000000
+* p_threshold: 0.000000
+*
+*# inst_id inst_name ir_color power_color drop_value power_value xlo ylo xhi yhi
+*
+unit : mV for IR, mW for power
+# 1 Count_temp_reg_0_ DFFR_X1.FRAM 1 0 0 0.00000e+00 0.00000e+00 0.00000e+00 127800 138000 165800 152000
+# 2 Count_temp_reg_1_ DFFR_X1.FRAM 1 0 0 0.00000e+00 0.00000e+00 0.00000e+00 127800 180000 165800 194000
+# 3 Count_temp_reg_2_ DFFR_X1.FRAM 1 0 0 0.00000e+00 0.00000e+00 0.00000e+00 173400 180000 211400 194000
+# 4 Count_temp_reg_3_ DFFR_X1.FRAM 1 0 0 0.00000e+00 0.00000e+00 0.00000e+00 173400 138000 211400 152000

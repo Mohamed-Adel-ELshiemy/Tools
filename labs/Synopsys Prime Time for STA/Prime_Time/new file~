@@ -1,0 +1,20 @@
+
+set link_path [list /home/standard_cell_libraries/NangateOpenCellLibrary_PDKv1_3_v2010_12/lib/Front_End/Liberty/NLDM/NangateOpenCellLibrary_ss0p95vn40c.db]
+
+read_verilog [list /home/ahesham/Desktop/PnR and synthesis/syn/output/johnson_Counter.v ]
+
+current_design johnson_Counter.v
+
+link
+
+read_sdc /home/ahesham/Desktop/PnR and synthesis/syn/output/johnson_Counter.sdc
+
+#read_parasitics .spef.max
+
+set_case_analysis 0 [get_ports Reset]
+#set_case_analysis 0 [get_ports SCANENABLE]
+
+report_constraint -all_violators -significant_digits 4 >  /home/ahesham/Desktop/Prime_Time/reports/johnson_PT_max.rpt 
+report_timing -delay_type max -nworst 40 -significant_digits 4 >  /home/ahesham/Desktop/Prime_Time/reports/johnson_PT_max_timing.rpt
+
+write_sdf /home/ahesham/Desktop/Prime_Time/ouputs/johnson_PT_max.sdf

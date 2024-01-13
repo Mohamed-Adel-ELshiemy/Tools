@@ -1,0 +1,5 @@
+
+pt_shell -f ./sta_max.tcl
+
+pt_shell -f ./sta_min.tcl
+

@@ -1,0 +1,17 @@
+---------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------Resources------------------------------------------------------
+1-https://www.vlsi-backend-adventure.com/index.html  (Highly Recommended)
+
+2-https://vlsiforall.blogspot.com/p/backend.html
+
+3-https://teamvlsi.com/2020/06/crosstalk-noise-and-crosstalk-delay-effects-of-crosstalk.html
+
+4-https://www.physicaldesign4u.com/2020/02/clock-tree-synthesis.html
+
+5-https://drive.google.com/drive/folders/1WV9PUlBLxsiWBqIDsDfRMr8qwOWZyxCO
+
+--References:
+6-Physical design essentials: an ASIC design implementation perspective
+
+7-Digital VLSI Systems Design: A Design Manual for Implementation of Projects on FPGAs and ASICs Using Verilog
+-------------------------------------------------------------------------------------------------------------------

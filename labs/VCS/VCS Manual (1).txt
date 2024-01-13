@@ -1,0 +1,35 @@
+----------------------------------------------------------------
+1-Enter to Directory
+Do not forget you must write in testbensh file 
+
+	1- `include "module.v"
+	
+	2- $dumpfile("RISC_V.vcd"); -->>The changes are recorded in a file called VCD file that stands for value change dump.
+	
+	3- $dumpvars(0, RISC_V_TB ); -->> it dumps ALL the variables of that module and all the variables in ALL lower level modules instantiated by this top module.
+
+	4- $finish;  >>if you donot  write this simulate will enter in infinty loop "It is not certain that will happen"
+
+
+
+
+2- vcs RISC_V.v RISC_V_TB.v  >>>>"Command for compile and check  error "
+
+
+
+3- ./simv  >> >>"command for Report,must after thisn coomand create file (RISC_V.vcd) for simulation"
+
+
+
+4-dve & >>>("For opening gui and wave simulate")
+
+
+5-open Gui and select open file 
+
+
+
+6-Select (RISC_V.vcd) file
+
+   
+------------------------------------------------------------------------
+	--------"Ahmed Elgammal"--------

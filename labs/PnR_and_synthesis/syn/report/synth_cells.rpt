@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : cell
+Design : johnson_counter
+Version: G-2012.06-SP2
+Date   : Thu Nov 29 11:10:50 2018
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+Count_temp_reg[0]         DFFR_X1         NangateOpenCellLibrary_ss0p95vn40c
+                                                          5.320000  n
+Count_temp_reg[1]         DFFR_X1         NangateOpenCellLibrary_ss0p95vn40c
+                                                          5.320000  n
+Count_temp_reg[2]         DFFR_X1         NangateOpenCellLibrary_ss0p95vn40c
+                                                          5.320000  n
+Count_temp_reg[3]         DFFR_X1         NangateOpenCellLibrary_ss0p95vn40c
+                                                          5.320000  n
+--------------------------------------------------------------------------------
+Total 4 cells                                             21.280001
+1

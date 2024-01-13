@@ -1,0 +1,259 @@
+----------------------------------------------------
+------------------Lab_Synthesis---------------------
+ 
+1- Ripple_Adder (Combination)
+
+2-Ripple_Adder  (Sequential) 
+
+3-ALU Sequentail (Registered output) 
+
+4-Design as you prefered (min 3 blocks   : Max 6 blocks ) 
+-----------------------------------------
+
+-----------------------------------------------------------
+-----------------------Ripple_Adder--------------------
+//////------Ripple_Adder---////
+module Ripple_Adder(
+
+input wire [15:0] A,B,
+input wire Cin,
+output wire [15:0] Sum,
+output wire Cout
+);
+	
+wire [15:0] carry;
+
+Full_Adder F0(A[0],B[0],Cin,Sum[0],carry[0]);
+
+
+genvar i;
+generate 
+for(i=1 ; i<16; i=i+1)
+begin 
+Full_Adder F0(A[i],B[i],carry[i-1],Sum[i],carry[i]);
+end 
+assign Cout=carry[15];
+
+endgenerate
+
+
+
+endmodule
+
+
+
+
+//////---Full_Adder---////
+module Full_Adder(
+
+input wire x,y,
+
+input wire c_in,
+
+output wire S,
+output wire c_out
+);
+
+wire Sum_1;
+wire carry_1;
+//--For_Sum--//
+
+assign Sum_1= x ^ y ;
+
+assign S= Sum_1 ^ c_in ; 
+
+
+//--For_Carry--//
+
+assign carry_1 = Sum_1 & c_in; 
+assign c_out = ((x&y) | carry_1);
+endmodule 
+
+------------------------------------------------------------------------
+-----------------------------Ripple_adder_seq--------------------------
+///---Top_module_Ripple_Adder--///
+module Topmodule_Rip(clk ,rst_n,A,B,Cin,Sum,Cout);
+
+//----inputs----//
+input clk ,rst_n;
+input [15:0] A,B;
+input Cin ;
+
+
+//---outputs---//
+output [15:0] Sum;
+output Cout;
+
+
+//---internal_signals---//
+wire [15:0] operand_A,operand_B;
+wire 	Carry_Cin;
+wire  [15:0] Sum_out;
+wire   Carry_Cout;
+
+
+//Flip_Flop_Multi_input//
+	//OPerand_1//
+flip_flop_M U1(
+.clk(clk),
+.rst_n(rst_n),
+.q(A),
+.d(operand_A)
+);
+
+	//operand_2//
+flip_flop_M U2(
+.clk(clk),
+.rst_n(rst_n),
+.q(B),
+.d(operand_B)
+);
+
+
+//Flip_Flop_Single_input//
+	//OPerand_1//
+flip_flop_S U3(
+.clk(clk),
+.rst_n(rst_n),
+.qs(Cin),
+.ds(Carry_Cin)
+);
+
+///---Ripple_Adder---//
+Ripple_Adder U4
+(.A(operand_A),
+.B(operand_B),
+.Cin(Carry_Cin),
+.Sum(Sum_out),
+.Cout(Carry_Cout)
+);
+
+	
+//Flip_Flop_Multi_input//
+	//OPerand_out//
+flip_flop_M U5(
+.clk(clk),
+.rst_n(rst_n),
+.q(Sum_out),
+.d(Sum)
+);
+
+
+
+//Flip_Flop_Single_input//
+	//OPerand_Carry//
+flip_flop_S U6(
+.clk(clk),
+.rst_n(rst_n),
+.qs(Carry_Cout),
+.ds(Cout)
+);
+
+endmodule 
+
+
+
+ //////////Flip_Flop_Single_bit///////////
+module flip_flop_S(clk ,rst_n ,qs,ds);
+
+///---inputs--////
+input clk,rst_n;
+input  ds;
+
+///---outputs---///
+output reg qs;
+
+
+always @(posedge clk or negedge rst_n)
+ begin 
+	if(!rst_n)
+		qs<=0;
+	else 
+		qs<=ds;
+ 
+ end 
+ 
+ endmodule 
+ 
+
+//////////Flip_Flop_multi_bit///////////
+module flip_flop_M(clk ,rst_n ,d,q);
+
+///---inputs--////
+input clk,rst_n;
+input [15:0]  d;
+
+///---outputs---///
+output reg [15:0] q;
+
+
+always @(posedge clk or negedge rst_n)
+ begin 
+	if(!rst_n)
+		q<=0;
+	else 
+		q<=d;
+ 
+ end 
+ 
+ endmodule 
+ 
+ 
+//////------Ripple_Adder---////
+module Ripple_Adder(
+
+input wire [15:0] A,B,
+input wire Cin,
+output wire [15:0] Sum,
+output wire Cout
+);
+	
+wire [15:0] carry;
+
+Full_Adder F0(A[0],B[0],Cin,Sum[0],carry[0]);
+
+
+genvar i;
+generate 
+for(i=1 ; i<16; i=i+1)
+begin 
+Full_Adder F0(A[i],B[i],carry[i-1],Sum[i],carry[i]);
+end 
+assign Cout=carry[15];
+
+endgenerate
+
+
+
+endmodule
+
+
+
+
+//////---Full_Adder---////
+module Full_Adder(
+
+input wire x,y,
+
+input wire c_in,
+
+output wire S,
+output wire c_out
+);
+
+wire Sum_1;
+wire carry_1;
+//--For_Sum--//
+
+assign Sum_1= x ^ y ;
+
+assign S= Sum_1 ^ c_in ; 
+
+
+//--For_Carry--//
+
+assign carry_1 = Sum_1 & c_in;
+ assign c_out = ((x&y) | carry_1);
+endmodule 
+
+

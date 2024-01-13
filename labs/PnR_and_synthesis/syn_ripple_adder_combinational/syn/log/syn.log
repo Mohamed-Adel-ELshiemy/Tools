@@ -1,0 +1,164 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+          Version G-2012.06-SP2 for RHEL64 -- Aug 31, 2012
+               Copyright (c) 1988-2012 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+########################### Define Top Module ############################
+set design Ripple_Adder
+Ripple_Adder
+##################### Define Working Library Directory ######################
+sh rm -rf work
+sh mkdir -p work
+define_design_lib work -path ./work
+1
+############################# Formality Setup File ##########################
+#set_svf $top_module.svf
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries          #"
+#      #setting Design Libraries          #
+puts "###########################################"
+###########################################
+#Add the path of the libraries and RTL files to the search_path variable
+set_app_var search_path "/home/standard_cell_libraries/NangateOpenCellLibrary_PDKv1_3_v2010_12/lib/Front_End/Liberty/NLDM"
+/home/standard_cell_libraries/NangateOpenCellLibrary_PDKv1_3_v2010_12/lib/Front_End/Liberty/NLDM
+set_app_var link_library "* NangateOpenCellLibrary_ss0p95vn40c.db"
+* NangateOpenCellLibrary_ss0p95vn40c.db
+set_app_var target_library "NangateOpenCellLibrary_ss0p95vn40c.db"
+NangateOpenCellLibrary_ss0p95vn40c.db
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+analyze -library work -format verilog ../rtl/${design}.v
+Running PRESTO HDLC
+Compiling source file ../rtl/Ripple_Adder.v
+Searching for /home/standard_cell_libraries/NangateOpenCellLibrary_PDKv1_3_v2010_12/lib/Front_End/Liberty/NLDM/Full_Adder.v
+Searching for ../rtl/Full_Adder.v
+Opening include file ../rtl/Full_Adder.v
+Error:  ../rtl/Ripple_Adder.v:4: Syntax error at or near token '--'. (VER-294)
+*** Presto compilation terminated with 1 errors. ***
+Loading db file '/home/standard_cell_libraries/NangateOpenCellLibrary_PDKv1_3_v2010_12/lib/Front_End/Liberty/NLDM/NangateOpenCellLibrary_ss0p95vn40c.db'
+0
+analyze -library work -format verilog ../rtl/*.v
+Running PRESTO HDLC
+Error:  Unable to open file `../rtl/*.v': No such file or directory. (VER-41)
+*** Presto compilation terminated with 1 errors. ***
+0
+elaborate $design -lib work
+Loading db file '/usr/synopsys/Design_Compiler/libraries/syn/gtech.db'
+Loading db file '/usr/synopsys/Design_Compiler/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary_ss0p95vn40c'
+  Loading link library 'gtech'
+Error: Cannot find the design 'Ripple_Adder' in the library 'work'. (LBR-0)
+0
+###################### Defining toplevel ###################################
+current_design
+Error: Current design is not defined. (UID-4)
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+Error: Current design is not defined. (UID-4)
+0
+#################### checking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design
+Error: Current design is not defined. (UID-4)
+0
+#################### Define Design Constraints #########################
+puts "###############################################"
+###############################################
+puts "############ Design Constraints #### ##########"
+############ Design Constraints #### ##########
+puts "###############################################"
+###############################################
+source ./cons/cons.tcl
+Error: Current design is not defined. (UID-4)
+Error: Required argument 'port_pin_list' was not found (CMD-007)
+Error: Required argument 'port_pin_list' was not found (CMD-007)
+Error: Current design is not defined. (UID-4)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Error: Current design is not defined. (UID-4)
+Error: Value for list 'objects' must have 1 elements. (CMD-036)
+Error: Current design is not defined. (UID-4)
+Error: Current design is not defined. (UID-4)
+Error: Current design is not defined. (UID-4)
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+compile -map_effort medium
+Error: Current design is not defined. (UID-4)
+0
+#############################################################################
+# Write out files
+#############################################################################
+write_sdc  output/${design}.sdc 
+Error: Current design is not defined. (UID-4)
+0
+define_name_rules  no_case -case_insensitive
+1
+change_names -rule no_case -hierarchy
+Error: Current design is not defined. (UID-4)
+0
+change_names -rule verilog -hierarchy
+Error: Current design is not defined. (UID-4)
+0
+set verilogout_no_tri	 true
+true
+set verilogout_equation  false
+false
+write -hierarchy -format verilog -output output/${design}.v 
+Error: No files or designs were specified. (UID-22)
+0
+write -f ddc -hierarchy -output output/${design}.ddc   
+Error: No files or designs were specified. (UID-22)
+0
+####################### reporting ##########################################
+report_area -hierarchy > report/area.rpt
+report_power -hierarchy > report/power.rpt
+report_timing -delay_type min -max_paths 20 > report/hold.rpt
+report_timing -delay_type max -max_paths 20 > report/setup.rpt
+report_clock -attributes > report/clocks.rpt
+report_constraint -all_violators -nosplit > report/constraints_violated.rpt
+report_cell > ./report/synth_cells.rpt
+report_qor  > ./report/synth_qor.rpt
+report_resources > ./report/synth_resources.rpt
+#gui_start 
+#exit
+dc_shell> 

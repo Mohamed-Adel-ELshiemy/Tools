@@ -1,0 +1,68 @@
+ 
+****************************************
+Report : qor
+Design : johnson_counter
+Version: G-2012.06-SP2
+Date   : Thu Nov 29 11:10:50 2018
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.09
+  Critical Path Slack:           0.51
+  Critical Path Clk Period:      1.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.04
+  Total Hold Violation:         -0.09
+  No. of Hold Violations:        4.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:                  4
+  Buf/Inv Cell Count:               0
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:         0
+  Sequential Cell Count:            4
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:        0.000000
+  Noncombinational Area:    21.280001
+  Buf/Inv Area:              0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:                21.280001
+  Design Area:              21.280001
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:             7
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: localhost.localdomain
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.06
+  Mapping Optimization:                0.07
+  -----------------------------------------
+  Overall Compile Time:                1.17
+  Overall Compile Wall Clock Time:     1.42
+
+1

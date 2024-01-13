@@ -1,0 +1,16 @@
+#*CDC_Constraint.sgdc*
+
+#set_cdc_check -setup -crossing_type gray_encoding/ 
+#[get_pins {CDC_Check.qualifier1[0:7]}]
+
+current_design CDC_Check
+
+clock -name "clk2_slow" -edge {"0" "10"} -period 20 
+clock -name "clk1_fast" -edge {"0" "5"} -period 10 
+
+reset -name "rst" -sync -value 1
+
+input -name data1 -clock clk1_fast
+input -name data2 -clock clk2_slow
+output -name data_out1 -clock clk2_slow
+output -name data_out2 -clock clk1_fast

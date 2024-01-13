@@ -1,0 +1,20 @@
+****************************************
+Report : constraint
+	-all_violators
+	-path slack_only
+Design : johnson_counter
+Version: G-2012.06-SP2
+Date   : Sat Dec  8 14:41:33 2018
+****************************************
+
+
+
+   max_area
+
+                             Required        Actual
+   Design                       Area           Area          Slack
+   -----------------------------------------------------------------
+   johnson_counter            0.0000        21.2800       -21.2800  (VIOLATED)
+
+
+1

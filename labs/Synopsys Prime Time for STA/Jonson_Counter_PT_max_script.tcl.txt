@@ -1,0 +1,19 @@
+set link_path [list /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db]
+
+read_verilog [list ../src/Jonson_Counter/synthesis_Jonson_Counter.v ]
+
+current_design johnson_ctr
+
+link
+
+read_sdc ../Jonson_Counter/outputs/Jonson_Counter.sdc
+
+#read_parasitics .spef.max
+
+set_case_analysis 0 [get_ports rstn]
+set_case_analysis 0 [get_ports SCANENABLE]
+
+report_constraint -all_violators -significant_digits 4 >  ../Jonson_Counter/reports/Jonson_PT_max_constraint.rpt 
+report_timing -delay_type max -nworst 40 -significant_digits 4 >  ../Jonson_Counter/reports/Jonson_PT_max_timing.rpt
+
+write_sdf ../Jonson_Counter/outputs/Jonson_PT_max.sdf
